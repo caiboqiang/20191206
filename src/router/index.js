@@ -17,7 +17,7 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-// 添加路由全局导航首位
+// 添加路由全局导航首位 测试
 router.beforeEach((to,from,next) => {
   NProgress.start()
   next()
