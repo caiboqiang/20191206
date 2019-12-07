@@ -9,8 +9,8 @@ import './assets/css/gloabal.css'
 import Axios from 'axios'
 Vue.config.productionTip = false
 // 设置根路径
-// export default request
- Axios.defaults.baseURL = 'http://www.baid.com'
+// export default request 这个也是一种配置跨域访问的方式
+ Axios.defaults.baseURL = 'http://jsonplaceholder.typicode.com'
 // 挂在请求
 Vue.prototype.$http = Axios
 

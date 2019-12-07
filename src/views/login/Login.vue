@@ -55,16 +55,35 @@ export default {
 		}
     },
     methods: {
+        // 请求方式一
         async test () {
-            const user = await request.get('/users')
-            // console.log(user)
+        const user = await request.get('/users')
+          //const user =  await this.$http.get('/users')
+            console.log(user)
         },
+        // 请求方式二
         on () {
 			// 表单预验证
-			this.$refs.loginRef.validate(valid => {
-				console.log(valid)
+			this.$refs.loginRef.validate(async valid => {
+
+                // 验证不通过返回
+                if(!valid) return this.$message.error('错了哦，这是一条错误消息');
+
+                // const userd = await request.get('/users')
+                // console.log(userd)
+                const {data : user} = await this.$http.get('/users')
+                //消息提示
+                this.$message({
+                    message: '恭喜你，这是一条成功消息',
+                    type: 'success'
+                    });
+				console.log(user)
 				// 不发起请求
-				// this.$http.get()	
+                // this.$http.get()	
+                
+                //成功之后跳转 路由
+                this.$router.push('/home')   
+
 			}) 
 		},
 		resetLoginFields () {

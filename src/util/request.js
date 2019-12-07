@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import Axios from 'axios'
 import store from '../store/index'
 import { Message } from 'element-ui' // 全局消息提示
@@ -48,3 +49,4 @@ request.interceptors.response.use(
 
 // 文件处理请求头
 export default request
+// Vue.prototype.$https = Axios
